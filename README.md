@@ -19,7 +19,7 @@ Once Node is installed, navigate to the directory where you want to store the ap
 git clone https://github.com/sailajareact/fend-react-myreads.git
 ```
 npm install or yarn install -->to install all dependencies
-```
+
 Once all of the dependencies have been installed you can launch the app with
 ```
 npm start or yarn start
