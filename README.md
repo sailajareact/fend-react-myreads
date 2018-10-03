@@ -8,7 +8,7 @@ The three shelves are:
 * Currently Reading
 * Want to Read
 * Read
-To change a book's category or remove a book from the list, click on the green button on  the book cover
+* To change a book's category or remove a book from the list, click on the green button on  the book cover
 
 ## Run App Locally
 
@@ -17,6 +17,7 @@ The project uses Node.js and npm.  If you do not have Node >= 6.x installed, you
 Once Node is installed, navigate to the directory where you want to store the app
 ```
 git clone https://github.com/sailajareact/fend-react-myreads.git
+```
 npm install or yarn install -->to install all dependencies
 ```
 Once all of the dependencies have been installed you can launch the app with
