@@ -7,7 +7,8 @@ import { Debounce } from 'react-throttle';
 
 class Search extends Component {
     state = {
-        booksQuery: []
+        booksQuery: [],
+        isQueryPassed: true
     }
 
     static propType = {
@@ -35,7 +36,8 @@ class Search extends Component {
         //request
         if(query === '') {
             this.setState({
-                booksQuery: []
+                booksQuery: [],
+                isQueryPassed: true
             })
 
             return
@@ -49,11 +51,13 @@ class Search extends Component {
             if (books !== undefined && books.error !== "empty query") {
 
                 this.setState({
-                    booksQuery: books
+                    booksQuery: books,
+                    isQueryPassed: true
                 })
             } else {
                 this.setState({
-                    booksQuery: []
+                    booksQuery: [],
+                    isQueryPassed: false
                 })
             }
 
@@ -91,7 +95,8 @@ class Search extends Component {
     clearQuery = () => {
         this.setState({
             query: '',
-            booksQuery: []
+            booksQuery: [],
+            // isQueryPassed: true
         })
     }
 
@@ -122,16 +127,22 @@ class Search extends Component {
                     </div>
                 </div>
                 <div className="search-books-results">
+                { this.state.booksQuery && (
                     <ol className="books-grid">
-                        {this.state.booksQuery.map(book => (
-                            <li key={book.id}>
-                                <Book
-                                    book={book}
-                                    booksShelfChange={this.handleBookShelfChange}
-                                />
-                            </li>
-                        ))}
-                    </ol>
+                    {
+                        this.state.booksQuery.map(book => 
+                          ( <li key={book.id}>
+                            <Book
+                                book={book}
+                                booksShelfChange={this.handleBookShelfChange}
+                            />
+                        </li> )
+                    )}
+                </ol> ) 
+            }
+                
+           { this.state.isQueryPassed === false && (<p className="search-info">Books Not Found</p>) } 
+                    
                 </div>
             </div>
         )
@@ -139,3 +150,16 @@ class Search extends Component {
 }
 
 export default Search
+
+
+// <ol className="books-grid">
+//                 {
+//                     this.state.booksQuery.map(book => 
+//                       ( <li key={book.id}>
+//                         <Book
+//                             book={book}
+//                             booksShelfChange={this.handleBookShelfChange}
+//                         />
+//                     </li> )
+//                 )}
+//             </ol>

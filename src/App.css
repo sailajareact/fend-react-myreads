@@ -103,6 +103,11 @@ body, .app {
   padding: 80px 10px 20px;
 }
 
+.search-info{
+ text-align: center;
+ font-size: 1.6em;
+}
+
 /* books grid */
 
 .books-grid {
